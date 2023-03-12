@@ -1,4 +1,3 @@
-
 let canvas = document.getElementById("canvas")
 let context = canvas.getContext("2d")
 
@@ -42,7 +41,7 @@ class vector {
 score = 0
 cellSize = 50
 var snake = [];
-snake.push(new block((new vector(4, 4)), "snake", new vector(1, 0)));
+snake.push(new block((new vector(5, 5)), "snake", new vector(1, 0)));
 
 window.addEventListener("keydown", e => {
     switch (e.key) {
@@ -78,33 +77,36 @@ window.addEventListener("keydown", e => {
     }
 })
 IsgameOver = false
-function gameOver(){
+
+function gameOver() {
     scoreText.textContent = "You lose with score : " + String(score)
     IsgameOver = true
 }
-function checkCollision(){
-    if (snake.length <= 2){
+
+function checkCollision() {
+    if (snake.length <= 2) {
         return
     }
-    if (snake[0].pos.x + snake[0].direction.x == snake[1].pos.x){
-        if (snake[0].pos.y + snake[0].direction.y == snake[1].pos.y){
+    if (snake[0].pos.x + snake[0].direction.x == snake[1].pos.x) {
+        if (snake[0].pos.y + snake[0].direction.y == snake[1].pos.y) {
             snake[0].direction.x = snake[0].direction.x * -1
             snake[0].direction.y = snake[0].direction.y * -1
         }
     }
     for (let index = 2; index < snake.length; index++) {
-        if (snake[0].pos.x + snake[0].direction.x == snake[index].pos.x){
-            if (snake[0].pos.y + snake[0].direction.y == snake[index].pos.y){
+        if (snake[0].pos.x + snake[0].direction.x == snake[index].pos.x) {
+            if (snake[0].pos.y + snake[0].direction.y == snake[index].pos.y) {
                 gameOver()
                 console.log("crash")
             }
         }
-        
+
     }
 }
 apple = null
 fed = false
 applyFood()
+
 function applyFood() {
     isAppleOutside = false
     apple = new block(new vector(getRandomInt(1, 9), getRandomInt(1, 9)), "apple",
@@ -112,19 +114,19 @@ function applyFood() {
     while (isAppleOutside == false) {
         isAppleOutside = true
         for (let index = 0; index < snake.length; index++) {
-            if (snake[index].pos.x == apple.pos.x){
-                if (snake[index].pos.y == apple.pos.y){
+            if (snake[index].pos.x == apple.pos.x) {
+                if (snake[index].pos.y == apple.pos.y) {
                     apple = new block(new vector(getRandomInt(1, 9), getRandomInt(1, 9)), "apple",
-                    new vector(0, 0))
+                        new vector(0, 0))
                     isAppleOutside = false
                 }
             }
-        }       
+        }
     }
 }
+
 function update() {
-    
-    if (IsgameOver){
+    if (IsgameOver) {
         return
     }
     checkCollision()
@@ -170,16 +172,6 @@ function update() {
     for (let index = 1; index < snake.length; index++) {
         snake[index].draw()
     }
+
 }
-setInterval(update, 400 - score * 10)
-
-
-
-
-
-
-
-
-
-
-
+setInterval(update, 325)
