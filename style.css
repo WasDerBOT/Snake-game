@@ -1,0 +1,22 @@
+body{
+    background: linear-gradient(320deg,rgb(247, 2, 2),rgb(0, 226, 49));
+    align-items: center;
+    background-size: cover;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    
+}
+
+canvas{
+    background: rgba(5, 173, 240, 0.643);
+    border-radius: 20px;
+    margin-bottom: 100%;
+}
+p{
+    size: 30px;
+    font-size: 50px;
+    text-align: center;
+    margin: 20px;
+}
+
