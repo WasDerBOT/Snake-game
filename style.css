@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(320deg, rgb(247, 2, 2), rgb(0, 226, 49));
+    background: linear-gradient(320deg, rgb(15, 0, 226),rgba(33, 255, 244, 0.733));
     align-items: center;
     background-size: cover;
     height: inherit;
@@ -9,7 +9,7 @@ body {
 }
 
 canvas {
-    background: rgba(5, 173, 240, 0.643);
+    background: rgba(27, 255, 95, 0.61);
     border-radius: 20px;
     margin-bottom: 100%;
 }
